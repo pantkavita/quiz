@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Quiz Time !!!!!!!!!!! </title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <nav>
+        <div><h1 style="color: white; font-size:30px; font-weight:bold;">AwesomeQuiz</h1></div>
+        <div class="nav-links" id="navLinks">
+            <i class="fa fa-window-close" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html">Angular</a></li>
+                <li><a href="../java/index.html">Java</a></li>
+                <li><a href="../mongo/index.html">Mongo</a></li>
+                
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+    
+   
+    <div class=" main-div ">
+        <h1 style="color: white; font-size: 40px; font-weight: bolder;">Angular Quiz</h1>
+        <div class="row">
+            <div class="col">
+       <p>Time Left: <span id="countdown">60:00</span></p>
+            </div>
+            <div class="col">
+       <p>Solved :<span id="total">0/50</span></p>
+            </div>
+        </div>
+        <div class=" inner-div ">
+            <h2 class="question"> Question comes here </h2>
+            <ul>
+                <li>
+                    <input type="radio" name="answer" id="ans1" class="answer">
+                    <label for="ans1" id="option1"> Option 1 </label>
+
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="ans2" class="answer">
+                    <label for="ans2" id="option2">Option 2 </label>
+
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="ans3" class="answer">
+                    <label for="ans3" id="option3"> Option 3</label>
+
+                </li>
+                <li>
+                    <input type="radio" name="answer" id="ans4" class="answer">
+                    <label for="ans4" id="option4">Option 4 </label>
+
+                </li>
+            </ul>
+            <button id="submit" class="Next">Next </button>
+            <div id="showScore" class="scoreArea">
+
+            </div>
+        </div>
+    </div>
+
+
+<div style="background-color: rgb(22, 104, 104) ; display: flex; justify-content:center;">
+<a href="../form.html" class="new-btn">Show Score</a>
+</div>
+
+    <script src="quiz.js"></script>
+    <script>
+        var navLinks=document.getElementById("navLinks");
+        function showMenu(){
+            navLinks.style.right="0";
+        }
+        function hideMenu(){
+            navLinks.style.right="-200px";
+        }
+    </script>
+    <script>
+        const startingMinutes= 60;
+        let time= startingMinutes * 60;
+        const countdownEl =document.getElementById('countdown');
+
+        setInterval(updateCount,1000);
+        function updateCount(){
+            const minutes =Math.floor(time/60);
+            let seconds=time % 60;
+
+            countdownEl.innerHTML=`${minutes}: ${seconds}`;
+
+            time--;
+        }
+    </script>
+    
+</body>
+
+</html>
